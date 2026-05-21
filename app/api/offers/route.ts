@@ -3,7 +3,7 @@ import { anthropic, MODEL } from '@/lib/anthropic';
 
 export async function POST(req: NextRequest) {
   try {
-    const { bizType, bizLabel, name, location, extraDetails } = await req.json();
+    const { bizLabel, name, location, extraDetails } = await req.json();
 
     const prompt = `You are a marketing expert for Indian local businesses.
 
