@@ -57,6 +57,8 @@ export interface ColorScheme {
 
 export type ColorMode = 'auto' | 'preset' | 'image' | 'manual';
 
+export type TemplateId = 'centered' | 'impact' | 'split' | 'minimal' | 'cafe' | 'promo' | 'editorial' | 'neon';
+
 export interface PosterState {
   profile: BusinessProfile;
   offer: string;

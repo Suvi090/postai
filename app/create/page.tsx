@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { BusinessProfile, GeneratedCopy, ColorMode, ColorScheme } from '@/lib/types';
+import { BusinessProfile, GeneratedCopy, ColorMode, ColorScheme, TemplateId } from '@/lib/types';
 import { getBusiness } from '@/lib/businesses';
 import { getSize } from '@/lib/sizes';
 import { COLOR_PRESETS } from '@/lib/colors';
@@ -12,6 +12,7 @@ import ImageUpload from '@/components/creator/ImageUpload';
 import SizeSelector from '@/components/creator/SizeSelector';
 import CopyOutput from '@/components/creator/CopyOutput';
 import PosterPreview from '@/components/poster/PosterPreview';
+import TemplatePicker from '@/components/creator/TemplatePicker';
 import Textarea from '@/components/ui/Textarea';
 
 const PROFILE_KEY = 'postai_profile';
@@ -30,6 +31,7 @@ export default function CreatePage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generateError, setGenerateError] = useState('');
   const [isDownloading, setIsDownloading] = useState(false);
+  const [templateId, setTemplateId] = useState<TemplateId>('centered');
 
   const posterRef = useRef<HTMLDivElement>(null);
 
@@ -218,6 +220,12 @@ export default function CreatePage() {
             maxHeight: 'calc(100vh - 57px)',
           }}
         >
+          {/* Template picker */}
+          <div style={card}>
+            <span style={sectionLabel}>Template</span>
+            <TemplatePicker selected={templateId} onSelect={setTemplateId} accent={biz.accent} />
+          </div>
+
           {/* Smart Offers */}
           <div style={card}>
             <span style={sectionLabel}>Smart Offer Ideas</span>
@@ -344,6 +352,7 @@ export default function CreatePage() {
             }}
           >
             <PosterPreview
+              templateId={templateId}
               business={biz}
               copy={generatedCopy}
               accent={colors.accent}
