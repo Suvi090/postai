@@ -73,7 +73,6 @@ export default function BusinessesPage() {
 
   function handleSave() {
     if (!form.name.trim()) { setError('Business name is required'); return; }
-    if (!form.location.trim()) { setError('Location is required'); return; }
     setError('');
     if (mode.type === 'new') {
       addBusiness(form);
@@ -172,7 +171,7 @@ export default function BusinessesPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <Input label="Business Name *" value={form.name} onChange={(e) => update('name', e.target.value)} placeholder="e.g. Arjun's Café" />
               <Input label="Phone Number" value={form.phone} onChange={(e) => update('phone', e.target.value)} placeholder="e.g. +91 98765 43210" type="tel" />
-              <Input label="Location / Area *" value={form.location} onChange={(e) => update('location', e.target.value)} placeholder="e.g. Kozhikode, Kerala" />
+              <Input label="Location / Area (optional)" value={form.location} onChange={(e) => update('location', e.target.value)} placeholder="e.g. Kozhikode, Kerala · leave blank for online businesses" />
               <Input label="Tagline (optional)" value={form.tagline} onChange={(e) => update('tagline', e.target.value)} placeholder="e.g. Fresh brews, warm vibes" />
               <Textarea label="Extra Details (optional)" value={form.extraDetails} onChange={(e) => update('extraDetails', e.target.value)} placeholder="Timings, USP, awards…" style={{ minHeight: 60 }} />
 

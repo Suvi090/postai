@@ -49,7 +49,7 @@ export default function TemplateCentered({
   const accentHex66 = accent + '66';
 
   const displayCopy = copy || {
-    headline: tagline || 'Special Offer',
+    headline: 'Your Headline Here',
     subheadline: 'Premium quality, unbeatable prices',
     offer: business.exampleOffer,
     body: 'Visit us today and experience the difference.',

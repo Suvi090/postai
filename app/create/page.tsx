@@ -31,6 +31,8 @@ export default function CreatePage() {
   const [bgImage, setBgImage]               = useState<string | null>(null);
   const [sizeId, setSizeId]                 = useState('instagram');
   const [generatedCopy, setGeneratedCopy]   = useState<GeneratedCopy | null>(null);
+  const [customHeadline, setCustomHeadline] = useState('');
+  const [customCta, setCustomCta]           = useState('');
   const [isGenerating, setIsGenerating]     = useState(false);
   const [generateError, setGenerateError]   = useState('');
   const [isDownloading, setIsDownloading]   = useState(false);
@@ -60,9 +62,11 @@ export default function CreatePage() {
   function handleSwitch(biz: SavedBusiness) {
     setActiveBusiness(biz.id);
     setActiveBiz(biz);
-    // Reset generated copy so it doesn't bleed across businesses
+    // Reset all copy fields on business switch
     setGeneratedCopy(null);
     setOffer('');
+    setCustomHeadline('');
+    setCustomCta('');
   }
 
   // ── Save / update business profile ────────────────────────────────────────
@@ -82,6 +86,20 @@ export default function CreatePage() {
   const biz    = activeBiz ? getBusiness(activeBiz.bizType) : getBusiness('cafe');
   const size   = getSize(sizeId);
   const profile: BusinessProfile | null = activeBiz ?? null;
+
+  // Merge AI-generated copy with any manual overrides
+  const effectiveCopy: GeneratedCopy | null =
+    (generatedCopy || customHeadline.trim() || customCta.trim())
+      ? {
+          headline:    customHeadline.trim() || generatedCopy?.headline    || '',
+          subheadline: generatedCopy?.subheadline || '',
+          offer:       generatedCopy?.offer       || offer.trim(),
+          body:        generatedCopy?.body        || '',
+          urgency:     generatedCopy?.urgency     || '',
+          cta:         customCta.trim()           || generatedCopy?.cta    || 'Contact Us',
+          caption:     generatedCopy?.caption     || '',
+        }
+      : null;
 
   function getColors(): ColorScheme {
     if (colorMode === 'auto')   return { accent: biz.accent, light: biz.light, bg: biz.darkBg };
@@ -213,6 +231,42 @@ export default function CreatePage() {
             <Textarea label="Your Offer" value={offer} onChange={(e) => setOffer(e.target.value)} placeholder="e.g. Buy 2 coffees get 1 free today only!" style={{ minHeight: 80 }} />
           </div>
 
+          {/* Custom text overrides */}
+          <div style={card}>
+            <span style={sectionLabel}>Customise Text</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <div>
+                <label style={{ fontSize: 10, color: '#9D97FF', letterSpacing: 2, textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: 6 }}>
+                  Hook / Headline
+                </label>
+                <input
+                  value={customHeadline}
+                  onChange={(e) => setCustomHeadline(e.target.value)}
+                  placeholder="e.g. Biggest Sale of the Year! · or leave blank for AI"
+                  style={{ background: '#07070f', border: '1px solid #1a1a2e', color: '#fff', borderRadius: 10, padding: '10px 13px', fontSize: 13, width: '100%', outline: 'none', boxSizing: 'border-box' }}
+                  onFocus={(e) => (e.target.style.borderColor = biz.accent)}
+                  onBlur={(e)  => (e.target.style.borderColor = '#1a1a2e')}
+                />
+              </div>
+              <div>
+                <label style={{ fontSize: 10, color: '#9D97FF', letterSpacing: 2, textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: 6 }}>
+                  CTA Button
+                </label>
+                <input
+                  value={customCta}
+                  onChange={(e) => setCustomCta(e.target.value)}
+                  placeholder="e.g. Call Now · Order Today · Book Free Trial"
+                  style={{ background: '#07070f', border: '1px solid #1a1a2e', color: '#fff', borderRadius: 10, padding: '10px 13px', fontSize: 13, width: '100%', outline: 'none', boxSizing: 'border-box' }}
+                  onFocus={(e) => (e.target.style.borderColor = biz.accent)}
+                  onBlur={(e)  => (e.target.style.borderColor = '#1a1a2e')}
+                />
+              </div>
+              <p style={{ margin: 0, fontSize: 11, color: '#444', lineHeight: 1.5 }}>
+                Updates the preview live. AI generation fills both — your text here overrides it.
+              </p>
+            </div>
+          </div>
+
           {/* Color scheme */}
           <div style={card}>
             <span style={sectionLabel}>Colour Scheme</span>
@@ -260,7 +314,7 @@ export default function CreatePage() {
             <PosterPreview
               templateId={templateId}
               business={biz}
-              copy={generatedCopy}
+              copy={effectiveCopy}
               accent={colors.accent}
               light={colors.light}
               bgColor={colors.bg}
@@ -288,7 +342,7 @@ export default function CreatePage() {
           )}
           {!generatedCopy && (
             <div style={{ marginTop: 24, textAlign: 'center', color: '#333' }}>
-              <p style={{ fontSize: 14 }}>Enter your offer and hit Generate →</p>
+              <p style={{ fontSize: 14 }}>Type a custom hook or enter your offer and hit Generate ✨</p>
             </div>
           )}
         </div>

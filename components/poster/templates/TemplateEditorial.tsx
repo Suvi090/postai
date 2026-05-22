@@ -29,7 +29,7 @@ export default function TemplateEditorial({
   const onAccent   = onColor(accent);
 
   const dc = copy || {
-    headline:    tagline || 'Special Offer',
+    headline:    'Your Headline Here',
     subheadline: 'Premium quality, unbeatable prices',
     offer:       business.exampleOffer,
     body: '', urgency: '',

@@ -36,7 +36,6 @@ export default function BusinessSetup({ onSave, initial }: BusinessSetupProps) {
 
   function handleSave() {
     if (!profile.name.trim()) { setError('Business name is required'); return; }
-    if (!profile.location.trim()) { setError('Location is required'); return; }
     setError('');
     onSave(profile);
   }
@@ -101,7 +100,7 @@ export default function BusinessSetup({ onSave, initial }: BusinessSetupProps) {
 
         <Input label="Business Name" value={profile.name} onChange={(e) => update('name', e.target.value)} placeholder="e.g. Arjun's Café" />
         <Input label="Phone Number" value={profile.phone} onChange={(e) => update('phone', e.target.value)} placeholder="e.g. +91 98765 43210" type="tel" />
-        <Input label="Location / Area" value={profile.location} onChange={(e) => update('location', e.target.value)} placeholder="e.g. Kozhikode, Kerala" />
+        <Input label="Location / Area (optional)" value={profile.location} onChange={(e) => update('location', e.target.value)} placeholder="e.g. Kozhikode, Kerala · leave blank for online businesses" />
         <Input label="Tagline (optional)" value={profile.tagline} onChange={(e) => update('tagline', e.target.value)} placeholder="e.g. Fresh brews, warm vibes" />
         <Textarea label="Extra Details (optional)" value={profile.extraDetails} onChange={(e) => update('extraDetails', e.target.value)} placeholder="Any special info: timings, USP, awards..." style={{ minHeight: 70 }} />
 

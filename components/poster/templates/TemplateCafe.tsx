@@ -29,7 +29,7 @@ export default function TemplateDiagonal({
   const accentSemi = hex2rgba(accent, 0.10);
 
   const dc = copy || {
-    headline:    tagline || 'Special Offer',
+    headline:    'Your Headline Here',
     subheadline: 'Premium quality, unbeatable prices',
     offer:       business.exampleOffer,
     body: '', urgency: '',

@@ -14,8 +14,8 @@ export const SIZES: PosterSize[] = [
     label: 'Story / Reel',
     width: 1080,
     height: 1920,
-    previewWidth: 260,
-    previewHeight: 462,
+    previewWidth: 310,
+    previewHeight: 551,
   },
   {
     id: 'facebook',
