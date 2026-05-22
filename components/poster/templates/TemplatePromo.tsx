@@ -60,7 +60,7 @@ export default function TemplatePromo({
       {/* ── Centre: headline label + GIANT offer ── */}
       <div style={{ position: 'absolute', top: pvH * 0.12, bottom: pvH * 0.30, left: PAD * 0.7, right: PAD * 0.7, zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: PAD * 0.22, textAlign: 'center' }}>
         {dc.headline && (
-          <div style={{ fontSize: HL, fontWeight: 700, color: 'rgba(255,255,255,.60)', lineHeight: 1.1, wordBreak: 'break-word', letterSpacing: 0.3, textShadow }}>
+          <div style={{ fontSize: HL, fontWeight: 700, color: 'rgba(255,255,255,.60)', lineHeight: 1.1, wordBreak: 'break-word', letterSpacing: 0.3, textShadow: textSh }}>
             {dc.headline}
           </div>
         )}
