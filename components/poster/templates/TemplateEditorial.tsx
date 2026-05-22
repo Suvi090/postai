@@ -100,7 +100,7 @@ export default function TemplateEditorial({
         </div>
         {(phone || location) && (
           <div style={{ fontSize: CON, color: 'rgba(255,255,255,.45)', letterSpacing: 0.5, fontFamily: "'Inter',sans-serif" }}>
-            {phone && `☎ ${phone}`}{phone && location && '  |  '}{location}
+            {phone}{phone && location && '  ·  '}{location}
           </div>
         )}
       </div>

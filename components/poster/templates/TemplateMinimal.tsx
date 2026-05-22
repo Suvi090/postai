@@ -82,7 +82,7 @@ export default function TemplateMinimal({
         {/* Contact — just below CTA */}
         {(phone || location) && (
           <div style={{ fontSize: CON, color: 'rgba(255,255,255,.80)', letterSpacing: 0.4, textShadow: darkShadow, fontWeight: 500, lineHeight: 1.5 }}>
-            {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
+            {phone}{phone && location && '  ·  '}{location}
           </div>
         )}
       </div>

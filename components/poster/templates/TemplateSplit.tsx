@@ -72,7 +72,7 @@ export default function TemplateSplit({
       {/* Contact */}
       {(phone || location) && (
         <div style={{ fontSize: CON, color: 'rgba(255,255,255,.85)', lineHeight: 1.5, wordBreak: 'break-word', fontWeight: 500 }}>
-          {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
+          {phone}{phone && location && '  ·  '}{location}
         </div>
       )}
     </div>
@@ -81,7 +81,8 @@ export default function TemplateSplit({
   const photoPanel = (
     <div style={{ ...(isTall ? { height: '44%', width: '100%' } : { width: '48%', height: '100%' }), position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
       {bgImage ? (
-        <img src={bgImage} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+        /* background-image avoids html2canvas objectFit:cover rendering bug on sub-panels */
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${bgImage}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
       ) : (
         <div style={{ width: '100%', height: '100%', background: `linear-gradient(145deg, ${accent} 0%, ${light} 45%, ${hex2rgba(accent, 0.50)} 100%)` }} />
       )}

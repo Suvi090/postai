@@ -20,6 +20,7 @@ export default function TemplateImpact({
   const CTA  = pvW * 0.026 * sc;
   const BIZ  = pvW * 0.020 * sc;
   const CON  = pvW * 0.026 * sc;
+  const BOD  = pvW * 0.024 * sc;
 
   const stripH    = isWide ? pvH * 0.42 : pvH * 0.36;  // bottom accent strip
   const onAccent  = onColor(accent);                    // text colour on accent bg
@@ -27,7 +28,7 @@ export default function TemplateImpact({
 
   const dc = copy || {
     headline:    'Your Headline Here',
-    subheadline: 'Premium quality, unbeatable prices',
+    subheadline: 'Generate AI copy or type your hook above',
     offer:       business.exampleOffer,
     body: '', urgency: '',
     cta:         'Contact Us',
@@ -71,9 +72,14 @@ export default function TemplateImpact({
         <div style={{ fontSize: HL, fontWeight: 900, color: '#ffffff', lineHeight: 1.05, textShadow: textSh, wordBreak: 'break-word', letterSpacing: -0.5 }}>
           {dc.headline}
         </div>
-        {dc.subheadline && !isWide && (
-          <div style={{ fontSize: SUB, color: 'rgba(255,255,255,.78)', lineHeight: 1.4, wordBreak: 'break-word', textShadow: textSh }}>
+        {dc.subheadline && (
+          <div style={{ fontSize: SUB, color: 'rgba(255,255,255,.80)', lineHeight: 1.4, wordBreak: 'break-word', textShadow: textSh }}>
             {dc.subheadline}
+          </div>
+        )}
+        {dc.body && !isWide && (
+          <div style={{ fontSize: BOD, color: 'rgba(255,255,255,.60)', lineHeight: 1.55, wordBreak: 'break-word', textShadow: textSh, maxWidth: '92%' }}>
+            {dc.body}
           </div>
         )}
       </div>
@@ -91,7 +97,7 @@ export default function TemplateImpact({
           </div>
           {(phone || location) && (
             <div style={{ fontSize: CON, color: onAccent, opacity: 0.90, lineHeight: 1.5, wordBreak: 'break-word', fontWeight: 500 }}>
-              {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
+              {phone}{phone && location && '  ·  '}{location}
             </div>
           )}
         </div>

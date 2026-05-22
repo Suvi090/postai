@@ -124,7 +124,7 @@ export default function TemplateCentered({
         )}
         {contactInFlow && hasContact && (
           <div style={{ fontSize: CON, color: 'rgba(255,255,255,.85)', letterSpacing: .4, lineHeight: 1.6, wordBreak: 'break-word', maxWidth: SAFE_W, flexShrink: 0, textShadow: darkShadow, fontWeight: 500 }}>
-            {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
+            {phone}{phone && location && '  ·  '}{location}
           </div>
         )}
       </div>

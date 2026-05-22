@@ -85,7 +85,7 @@ export default function TemplatePromo({
         )}
         {(phone || location) && (
           <div style={{ fontSize: CON, color: 'rgba(255,255,255,.85)', letterSpacing: 0.5, textAlign: 'center', fontWeight: 500 }}>
-            {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
+            {phone}{phone && location && '  ·  '}{location}
           </div>
         )}
       </div>

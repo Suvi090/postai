@@ -96,7 +96,7 @@ export default function TemplateNeon({
         </div>
         {(phone || location) && (
           <div style={{ fontSize: CON, color: hex2rgba(accent, 0.85), letterSpacing: 0.5, textShadow: `0 0 8px ${hex2rgba(accent, 0.40)}`, textAlign: 'center', fontWeight: 500, lineHeight: 1.5 }}>
-            {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
+            {phone}{phone && location && '  ·  '}{location}
           </div>
         )}
       </div>

@@ -96,7 +96,7 @@ export default function TemplateDiagonal({
         </div>
         {(phone || location) && (
           <div style={{ fontSize: CON, color: 'rgba(255,255,255,.58)', letterSpacing: 0.4, textAlign: 'center', lineHeight: 1.5 }}>
-            {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
+            {phone}{phone && location && '  ·  '}{location}
           </div>
         )}
       </div>
