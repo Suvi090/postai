@@ -87,7 +87,7 @@ export default function TemplateDiagonal({
       {/* ── Bottom zone: offer + CTA + contact ── */}
       <div style={{ position: 'absolute', bottom: PAD * 0.85, left: PAD, right: PAD, zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: PAD * 0.40 }}>
         {dc.offer && (
-          <div style={{ border: `2px solid ${accent}`, borderRadius: 8, padding: `${PAD * 0.50}px ${PAD * 0.90}px`, fontSize: OFF, fontWeight: 900, color: accent, textTransform: 'uppercase', letterSpacing: 0.5, lineHeight: 1.25, textAlign: 'center', wordBreak: 'break-word', background: accentSemi, backdropFilter: 'blur(4px)', width: '100%', boxSizing: 'border-box', textShadow: darkShadow }}>
+          <div style={{ border: `2px solid ${accent}`, borderRadius: 8, padding: `${PAD * 0.50}px ${PAD * 0.90}px`, fontSize: OFF, fontWeight: 900, color: '#ffffff', textTransform: 'uppercase', letterSpacing: 0.5, lineHeight: 1.25, textAlign: 'center', wordBreak: 'break-word', background: 'rgba(0,0,0,0.85)', width: '100%', boxSizing: 'border-box', textShadow: darkShadow }}>
             {dc.offer}
           </div>
         )}

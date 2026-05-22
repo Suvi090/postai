@@ -105,7 +105,7 @@ export default function TemplateCentered({
           </div>
         )}
         {displayCopy.offer && (
-          <div style={{ background: layout === 'promo' ? accent : 'linear-gradient(135deg,rgba(0,0,0,.65),rgba(0,0,0,.45))', border: `2.5px solid ${accent}`, borderRadius: 10, backdropFilter: 'blur(10px)', width: SAFE_W, padding: `${GAP}px ${GAP * 1.4}px`, color: layout === 'promo' ? onColor(accent) : accent, fontWeight: 900, textTransform: 'uppercase', letterSpacing: Math.max(.5, pvW * .003), fontSize: OFF, textShadow: layout === 'promo' ? 'none' : `0 0 18px ${accentHex66},0 2px 8px rgba(0,0,0,.6)`, boxShadow: `0 4px 20px ${accentHex66},inset 0 1px 0 rgba(255,255,255,.08)`, wordBreak: 'break-word', lineHeight: 1.3, flexShrink: 1 }}>
+          <div style={{ background: layout === 'promo' ? accent : 'rgba(0,0,0,0.88)', border: `2px solid ${accent}`, borderRadius: 10, width: SAFE_W, padding: `${GAP}px ${GAP * 1.4}px`, color: layout === 'promo' ? onColor(accent) : '#ffffff', fontWeight: 900, textTransform: 'uppercase', letterSpacing: Math.max(.5, pvW * .003), fontSize: OFF, boxShadow: `0 0 0 1px ${hex2rgba(accent,0.20)}, 0 4px 20px ${accentHex66}`, wordBreak: 'break-word', lineHeight: 1.3, flexShrink: 1, textAlign: 'center' }}>
             {displayCopy.offer}
           </div>
         )}

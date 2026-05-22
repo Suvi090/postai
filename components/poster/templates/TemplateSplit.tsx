@@ -59,7 +59,7 @@ export default function TemplateSplit({
 
       {/* Offer pill */}
       {dc.offer && (
-        <div style={{ border: `1.5px solid ${accent}`, borderRadius: 8, padding: `${PAD * 0.38}px ${PAD * 0.65}px`, fontSize: OFF, fontWeight: 900, color: accent, textTransform: 'uppercase', letterSpacing: 0.3, lineHeight: 1.25, wordBreak: 'break-word', background: hex2rgba(accent, 0.10), textShadow: darkShadow }}>
+        <div style={{ border: `1.5px solid ${accent}`, borderRadius: 8, padding: `${PAD * 0.38}px ${PAD * 0.65}px`, fontSize: OFF, fontWeight: 900, color: '#ffffff', textTransform: 'uppercase', letterSpacing: 0.3, lineHeight: 1.25, wordBreak: 'break-word', background: 'rgba(0,0,0,0.82)', textShadow: darkShadow }}>
           {dc.offer}
         </div>
       )}
