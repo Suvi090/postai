@@ -68,11 +68,11 @@ export default function TemplateImpact({
 
       {/* ── Main area: giant headline ── */}
       <div style={{ position: 'absolute', top: pvH * 0.13, left: PAD, right: PAD, bottom: stripH, zIndex: 20, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: PAD * 0.30 }}>
-        <div style={{ fontSize: HL, fontWeight: 900, color: '#ffffff', lineHeight: 1.05, textShadow, wordBreak: 'break-word', letterSpacing: -0.5 }}>
+        <div style={{ fontSize: HL, fontWeight: 900, color: '#ffffff', lineHeight: 1.05, textShadow: textSh, wordBreak: 'break-word', letterSpacing: -0.5 }}>
           {dc.headline}
         </div>
         {dc.subheadline && !isWide && (
-          <div style={{ fontSize: SUB, color: 'rgba(255,255,255,.78)', lineHeight: 1.4, wordBreak: 'break-word', textShadow }}>
+          <div style={{ fontSize: SUB, color: 'rgba(255,255,255,.78)', lineHeight: 1.4, wordBreak: 'break-word', textShadow: textSh }}>
             {dc.subheadline}
           </div>
         )}
