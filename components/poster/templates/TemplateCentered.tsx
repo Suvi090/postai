@@ -1,6 +1,6 @@
 'use client';
 import DecoLayer from '../DecoLayer';
-import { hex2rgba, TemplateProps } from './shared';
+import { hex2rgba, onColor, imgShadow, darkShadow, TemplateProps } from './shared';
 
 export default function TemplateCentered({
   business, copy, accent, light, bgColor, layout,
@@ -96,21 +96,21 @@ export default function TemplateCentered({
           <span style={{ fontSize: pvW * 0.036, color: accent, lineHeight: 1 }}>{business.emoji}</span>
           <div style={{ flex: 1, height: 1, background: `linear-gradient(90deg,${accent},transparent)`, maxWidth: 50 }} />
         </div>
-        <div style={{ fontSize: HL, fontWeight: 900, color: '#fff', lineHeight: 1.15, textShadow: '0 2px 20px rgba(0,0,0,.99)', textTransform: isUppercase ? 'uppercase' : 'none', wordBreak: 'break-word', maxWidth: SAFE_W, flexShrink: 1 }}>
+        <div style={{ fontSize: HL, fontWeight: 900, color: '#fff', lineHeight: 1.15, textShadow: bgImage ? imgShadow : darkShadow, textTransform: isUppercase ? 'uppercase' : 'none', wordBreak: 'break-word', maxWidth: SAFE_W, flexShrink: 1 }}>
           {displayCopy.headline}
         </div>
         {displayCopy.subheadline && (
-          <div style={{ fontSize: SUB, color: bgImage ? 'rgba(255,255,255,.92)' : light, lineHeight: 1.4, maxWidth: SAFE_W, textShadow: '0 1px 6px rgba(0,0,0,.7)', flexShrink: 1, wordBreak: 'break-word' }}>
+          <div style={{ fontSize: SUB, color: bgImage ? 'rgba(255,255,255,.92)' : light, lineHeight: 1.4, maxWidth: SAFE_W, textShadow: darkShadow, flexShrink: 1, wordBreak: 'break-word' }}>
             {displayCopy.subheadline}
           </div>
         )}
         {displayCopy.offer && (
-          <div style={{ background: layout === 'promo' ? accent : 'linear-gradient(135deg,rgba(0,0,0,.65),rgba(0,0,0,.45))', border: `2.5px solid ${accent}`, borderRadius: 10, backdropFilter: 'blur(10px)', width: SAFE_W, padding: `${GAP}px ${GAP * 1.4}px`, color: layout === 'promo' ? bgColor : accent, fontWeight: 900, textTransform: 'uppercase', letterSpacing: Math.max(.5, pvW * .003), fontSize: OFF, textShadow: layout === 'promo' ? 'none' : `0 0 18px ${accentHex66},0 2px 8px rgba(0,0,0,.6)`, boxShadow: `0 4px 20px ${accentHex66},inset 0 1px 0 rgba(255,255,255,.08)`, wordBreak: 'break-word', lineHeight: 1.3, flexShrink: 1 }}>
+          <div style={{ background: layout === 'promo' ? accent : 'linear-gradient(135deg,rgba(0,0,0,.65),rgba(0,0,0,.45))', border: `2.5px solid ${accent}`, borderRadius: 10, backdropFilter: 'blur(10px)', width: SAFE_W, padding: `${GAP}px ${GAP * 1.4}px`, color: layout === 'promo' ? onColor(accent) : accent, fontWeight: 900, textTransform: 'uppercase', letterSpacing: Math.max(.5, pvW * .003), fontSize: OFF, textShadow: layout === 'promo' ? 'none' : `0 0 18px ${accentHex66},0 2px 8px rgba(0,0,0,.6)`, boxShadow: `0 4px 20px ${accentHex66},inset 0 1px 0 rgba(255,255,255,.08)`, wordBreak: 'break-word', lineHeight: 1.3, flexShrink: 1 }}>
             {displayCopy.offer}
           </div>
         )}
         {showBody && (
-          <div style={{ fontSize: BOD, color: bgImage ? 'rgba(255,255,255,.88)' : 'rgba(255,255,255,.8)', lineHeight: 1.55, maxWidth: SAFE_W, textShadow: '0 1px 4px rgba(0,0,0,.6)', wordBreak: 'break-word', flexShrink: 1 }}>
+          <div style={{ fontSize: BOD, color: bgImage ? 'rgba(255,255,255,.88)' : 'rgba(255,255,255,.8)', lineHeight: 1.55, maxWidth: SAFE_W, textShadow: darkShadow, wordBreak: 'break-word', flexShrink: 1 }}>
             {displayCopy.body}
           </div>
         )}
@@ -120,7 +120,7 @@ export default function TemplateCentered({
           </div>
         )}
         {displayCopy.cta && (
-          <div style={{ background: `linear-gradient(135deg,${accent},${light})`, color: bgColor, padding: `${GAP * .85}px ${GAP * 2}px`, borderRadius: 8, fontWeight: 900, letterSpacing: Math.max(1, pvW * .004), textTransform: 'uppercase', fontSize: CTA, boxShadow: `0 4px 24px ${accentHex66}`, maxWidth: SAFE_W, minWidth: '40%', flexShrink: 0, wordBreak: 'break-word' }}>
+          <div style={{ background: `linear-gradient(135deg,${accent},${light})`, color: onColor(accent), padding: `${GAP * .85}px ${GAP * 2}px`, borderRadius: 8, fontWeight: 900, letterSpacing: Math.max(1, pvW * .004), textTransform: 'uppercase', fontSize: CTA, boxShadow: `0 4px 24px ${accentHex66}`, maxWidth: SAFE_W, minWidth: '40%', flexShrink: 0, wordBreak: 'break-word' }}>
             {displayCopy.cta}
           </div>
         )}

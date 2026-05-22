@@ -6,7 +6,7 @@ const TEMPLATES: { id: TemplateId; label: string; icon: string; desc: string }[]
   { id: 'impact',    label: 'Impact',    icon: '▰', desc: 'Giant headline + accent strip' },
   { id: 'split',     label: 'Split',     icon: '◧', desc: 'Text left, photo right' },
   { id: 'minimal',   label: 'Minimal',   icon: '◻', desc: 'Premium whitespace' },
-  { id: 'cafe',      label: 'Vintage',   icon: '◉', desc: 'Striped top, circle frame' },
+  { id: 'cafe',      label: 'Diagonal',  icon: '◈', desc: 'Bold skewed accent band' },
   { id: 'promo',     label: 'Promo',     icon: '▣', desc: 'Giant offer dominates' },
   { id: 'editorial', label: 'Editorial', icon: '▤', desc: 'Newspaper hierarchy' },
   { id: 'neon',      label: 'Neon',      icon: '◈', desc: 'Dark with glow effects' },
