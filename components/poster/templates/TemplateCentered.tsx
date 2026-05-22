@@ -21,13 +21,11 @@ export default function TemplateCentered({
   const CTA = pvW * 0.034 * wideScale;
   const BIZ = pvW * 0.026 * wideScale;
   const TAG = pvW * 0.025 * wideScale;
-  const CON = isTall
-    ? Math.max(pvH * 0.022, pvW * 0.030)
-    : pvW * 0.024 * wideScale;
+  const CON = pvW * 0.026 * wideScale;
 
   const PAD = pvW * 0.10;
   const SAFE_W = '86%';
-  const contactInFlow = isTall;
+  const contactInFlow = true;
   const hasContact = !!(phone || location);
   const contactH = (!contactInFlow && hasContact) ? CON + PAD * 0.8 : 0;
   const contentH = pvH - PAD * 2 - contactH;
@@ -125,17 +123,12 @@ export default function TemplateCentered({
           </div>
         )}
         {contactInFlow && hasContact && (
-          <div style={{ fontSize: CON, color: 'rgba(255,255,255,.70)', letterSpacing: .5, lineHeight: 1.5, wordBreak: 'break-word', maxWidth: SAFE_W, flexShrink: 0, textShadow: '0 1px 6px rgba(0,0,0,.7)' }}>
+          <div style={{ fontSize: CON, color: 'rgba(255,255,255,.85)', letterSpacing: .4, lineHeight: 1.6, wordBreak: 'break-word', maxWidth: SAFE_W, flexShrink: 0, textShadow: darkShadow, fontWeight: 500 }}>
             {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
           </div>
         )}
       </div>
 
-      {!contactInFlow && hasContact && (
-        <div style={{ position: 'absolute', bottom: PAD * .6, left: PAD, right: PAD, zIndex: 21, textAlign: 'center', fontSize: CON, color: 'rgba(255,255,255,.65)', letterSpacing: .3, lineHeight: 1.4, wordBreak: 'break-word' }}>
-          {phone && location ? `📞 ${phone}  ·  📍 ${location}` : phone ? `📞 ${phone}` : `📍 ${location}`}
-        </div>
-      )}
     </div>
   );
 }

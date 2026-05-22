@@ -18,7 +18,7 @@ export default function TemplateEditorial({
   const OFF  = pvW * 0.032 * sc;
   const CTA  = pvW * 0.024 * sc;
   const BIZ  = pvW * 0.018 * sc;
-  const CON  = pvW * 0.017 * sc;
+  const CON  = pvW * 0.026 * sc;
   const SUB  = pvW * 0.024 * sc;
 
   const mastheadH  = pvH * 0.12;

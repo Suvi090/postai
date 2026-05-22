@@ -16,7 +16,7 @@ export default function TemplateMinimal({
   const HL   = pvW * 0.080 * sc;
   const CTA  = pvW * 0.024 * sc;
   const BIZ  = pvW * 0.017 * sc;
-  const CON  = pvW * 0.016 * sc;
+  const CON  = pvW * 0.026 * sc;
   const OFF  = pvW * 0.028 * sc;
 
   const dc = copy || {
@@ -78,17 +78,14 @@ export default function TemplateMinimal({
           <div style={{ fontSize: CTA, color: accent, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2 }}>{dc.cta}</div>
           <div style={{ fontSize: CTA, color: accent }}>→</div>
         </div>
-      </div>
 
-      {/* Contact — bottom */}
-      {(phone || location) && (
-        <div style={{ position: 'absolute', bottom: pvH * 0.07, left: PAD, right: PAD, zIndex: 20, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ fontSize: CON, color: 'rgba(255,255,255,.40)', letterSpacing: 0.5, textShadow: darkShadow }}>
-            {phone && `${phone}`}{phone && location && '  ·  '}{location && `${location}`}
+        {/* Contact — just below CTA */}
+        {(phone || location) && (
+          <div style={{ fontSize: CON, color: 'rgba(255,255,255,.80)', letterSpacing: 0.4, textShadow: darkShadow, fontWeight: 500, lineHeight: 1.5 }}>
+            {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
           </div>
-          <div style={{ fontSize: pvW * 0.022, opacity: 0.22 }}>{business.emoji}</div>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Accent line bottom */}
       <div style={{ position: 'absolute', bottom: 0, left: PAD, right: PAD, height: 2, background: `linear-gradient(90deg, ${accent}, transparent)`, zIndex: 10 }} />

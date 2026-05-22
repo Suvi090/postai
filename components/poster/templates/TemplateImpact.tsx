@@ -19,7 +19,7 @@ export default function TemplateImpact({
   const OFF  = pvW * 0.034 * sc;
   const CTA  = pvW * 0.026 * sc;
   const BIZ  = pvW * 0.020 * sc;
-  const CON  = pvW * 0.018 * sc;
+  const CON  = pvW * 0.026 * sc;
 
   const stripH    = isWide ? pvH * 0.42 : pvH * 0.36;  // bottom accent strip
   const onAccent  = onColor(accent);                    // text colour on accent bg
@@ -85,13 +85,13 @@ export default function TemplateImpact({
             {dc.offer}
           </div>
         )}
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: PAD * 0.3, flexWrap: 'wrap' }}>
-          <div style={{ fontSize: CTA, fontWeight: 800, color: onAccent, textTransform: 'uppercase', letterSpacing: 1.5, background: `rgba(0,0,0,0.15)`, padding: `${PAD * 0.28}px ${PAD * 0.7}px`, borderRadius: 6, flexShrink: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: PAD * 0.28 }}>
+          <div style={{ fontSize: CTA, fontWeight: 800, color: onAccent, textTransform: 'uppercase', letterSpacing: 1.5, background: `rgba(0,0,0,0.15)`, padding: `${PAD * 0.28}px ${PAD * 0.7}px`, borderRadius: 6, alignSelf: 'flex-start' }}>
             {dc.cta} →
           </div>
           {(phone || location) && (
-            <div style={{ fontSize: CON, color: onAccent, opacity: 0.80, textAlign: 'right', lineHeight: 1.4, wordBreak: 'break-word', flexShrink: 1, minWidth: 0 }}>
-              {phone && `📞 ${phone}`}{phone && location && '\n'}{location && `📍 ${location}`}
+            <div style={{ fontSize: CON, color: onAccent, opacity: 0.90, lineHeight: 1.5, wordBreak: 'break-word', fontWeight: 500 }}>
+              {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
             </div>
           )}
         </div>

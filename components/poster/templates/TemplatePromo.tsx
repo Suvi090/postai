@@ -17,7 +17,7 @@ export default function TemplatePromo({
   const HL   = pvW * 0.052 * sc;         // headline above offer — medium
   const OFF  = pvW * 0.105 * sc;         // GIANT offer text
   const CTA  = pvW * 0.028 * sc;
-  const CON  = pvW * 0.018 * sc;
+  const CON  = pvW * 0.026 * sc;
 
   const onAccent   = onColor(accent);
   const textSh     = bgImage ? imgShadow : darkShadow;
@@ -84,7 +84,7 @@ export default function TemplatePromo({
           </div>
         )}
         {(phone || location) && (
-          <div style={{ fontSize: CON, color: 'rgba(255,255,255,.38)', letterSpacing: 0.5, textAlign: 'center' }}>
+          <div style={{ fontSize: CON, color: 'rgba(255,255,255,.85)', letterSpacing: 0.5, textAlign: 'center', fontWeight: 500 }}>
             {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
           </div>
         )}

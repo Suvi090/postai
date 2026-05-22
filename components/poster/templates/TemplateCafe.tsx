@@ -18,7 +18,7 @@ export default function TemplateDiagonal({
   const OFF  = pvW * 0.034 * sc;
   const CTA  = pvW * 0.026 * sc;
   const BIZ  = pvW * 0.019 * sc;
-  const CON  = pvW * 0.018 * sc;
+  const CON  = pvW * 0.026 * sc;
 
   // The diagonal band sits in the centre third
   const bandTop = pvH * 0.27;

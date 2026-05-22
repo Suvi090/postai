@@ -19,7 +19,7 @@ export default function TemplateSplit({
   const OFF  = pvW * 0.032 * sc;
   const CTA  = pvW * 0.026 * sc;
   const BIZ  = pvW * 0.020 * sc;
-  const CON  = pvW * 0.017 * sc;
+  const CON  = pvW * 0.026 * sc;
 
   const onAccent = onColor(accent);
 
@@ -71,7 +71,7 @@ export default function TemplateSplit({
 
       {/* Contact */}
       {(phone || location) && (
-        <div style={{ fontSize: CON, color: 'rgba(255,255,255,.52)', lineHeight: 1.5, wordBreak: 'break-word' }}>
+        <div style={{ fontSize: CON, color: 'rgba(255,255,255,.85)', lineHeight: 1.5, wordBreak: 'break-word', fontWeight: 500 }}>
           {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
         </div>
       )}

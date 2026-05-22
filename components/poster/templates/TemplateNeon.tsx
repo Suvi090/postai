@@ -17,7 +17,7 @@ export default function TemplateNeon({
   const OFF  = pvW * 0.040 * sc;
   const CTA  = pvW * 0.028 * sc;
   const BIZ  = pvW * 0.020 * sc;
-  const CON  = pvW * 0.018 * sc;
+  const CON  = pvW * 0.026 * sc;
   const TAG  = pvW * 0.022 * sc;
 
   // Layered neon text-shadow using the accent colour
@@ -65,7 +65,7 @@ export default function TemplateNeon({
       </div>
 
       {/* ── Centre: headline + offer box ── */}
-      <div style={{ position: 'absolute', top: pvH * 0.13, bottom: pvH * 0.17, left: PAD * 0.85, right: PAD * 0.85, zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: PAD * 0.48, textAlign: 'center' }}>
+      <div style={{ position: 'absolute', top: pvH * 0.13, bottom: pvH * 0.28, left: PAD * 0.85, right: PAD * 0.85, zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: PAD * 0.48, textAlign: 'center' }}>
         {tagline && !isWide && (
           <div style={{ fontSize: TAG, color: light, letterSpacing: 1, textShadow: neonSoft, opacity: 0.85 }}>{tagline}</div>
         )}
@@ -89,21 +89,17 @@ export default function TemplateNeon({
         )}
       </div>
 
-      {/* ── CTA ── */}
-      <div style={{ position: 'absolute', bottom: pvH * 0.17, left: '50%', transform: 'translateX(-50%)', zIndex: 20 }}>
+      {/* ── CTA + Contact — grouped in safe zone ── */}
+      <div style={{ position: 'absolute', bottom: pvH * 0.09, left: PAD, right: PAD, zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: PAD * 0.40 }}>
         <div style={{ background: `linear-gradient(135deg, ${accent}, ${light})`, color: onAccent, padding: `${PAD * 0.44}px ${PAD * 1.45}px`, borderRadius: 4, fontWeight: 900, fontSize: CTA, textTransform: 'uppercase', letterSpacing: 2, whiteSpace: 'nowrap', boxShadow: `${neonText}, 0 4px 20px rgba(0,0,0,.5)` }}>
           {dc.cta}
         </div>
-      </div>
-
-      {/* ── Contact footer ── */}
-      {(phone || location) && (
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: pvH * 0.17, zIndex: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', borderTop: `1px solid ${hex2rgba(accent, 0.18)}` }}>
-          <div style={{ fontSize: CON, color: hex2rgba(accent, 0.65), letterSpacing: 0.5, textShadow: `0 0 8px ${hex2rgba(accent, 0.35)}`, textAlign: 'center' }}>
+        {(phone || location) && (
+          <div style={{ fontSize: CON, color: hex2rgba(accent, 0.85), letterSpacing: 0.5, textShadow: `0 0 8px ${hex2rgba(accent, 0.40)}`, textAlign: 'center', fontWeight: 500, lineHeight: 1.5 }}>
             {phone && `📞 ${phone}`}{phone && location && '  ·  '}{location && `📍 ${location}`}
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Scan-line border at bottom */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1.5, background: `linear-gradient(90deg, ${accent}, transparent)`, zIndex: 10 }} />
