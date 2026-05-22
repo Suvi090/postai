@@ -10,6 +10,7 @@ import { COLOR_PRESETS } from '@/lib/colors';
 import BusinessSetup from '@/components/creator/BusinessSetup';
 import BusinessSwitcher from '@/components/creator/BusinessSwitcher';
 import SmartOffers from '@/components/creator/SmartOffers';
+import SmartSuggestions from '@/components/creator/SmartSuggestions';
 import ColorSchemeSelector from '@/components/creator/ColorSchemeSelector';
 import ImageUpload from '@/components/creator/ImageUpload';
 import SizeSelector from '@/components/creator/SizeSelector';
@@ -231,40 +232,18 @@ export default function CreatePage() {
             <Textarea label="Your Offer" value={offer} onChange={(e) => setOffer(e.target.value)} placeholder="e.g. Buy 2 coffees get 1 free today only!" style={{ minHeight: 80 }} />
           </div>
 
-          {/* Custom text overrides */}
+          {/* Hook & CTA suggestions */}
           <div style={card}>
-            <span style={sectionLabel}>Customise Text</span>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <div>
-                <label style={{ fontSize: 10, color: '#9D97FF', letterSpacing: 2, textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: 6 }}>
-                  Hook / Headline
-                </label>
-                <input
-                  value={customHeadline}
-                  onChange={(e) => setCustomHeadline(e.target.value)}
-                  placeholder="e.g. Biggest Sale of the Year! · or leave blank for AI"
-                  style={{ background: '#07070f', border: '1px solid #1a1a2e', color: '#fff', borderRadius: 10, padding: '10px 13px', fontSize: 13, width: '100%', outline: 'none', boxSizing: 'border-box' }}
-                  onFocus={(e) => (e.target.style.borderColor = biz.accent)}
-                  onBlur={(e)  => (e.target.style.borderColor = '#1a1a2e')}
-                />
-              </div>
-              <div>
-                <label style={{ fontSize: 10, color: '#9D97FF', letterSpacing: 2, textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: 6 }}>
-                  CTA Button
-                </label>
-                <input
-                  value={customCta}
-                  onChange={(e) => setCustomCta(e.target.value)}
-                  placeholder="e.g. Call Now · Order Today · Book Free Trial"
-                  style={{ background: '#07070f', border: '1px solid #1a1a2e', color: '#fff', borderRadius: 10, padding: '10px 13px', fontSize: 13, width: '100%', outline: 'none', boxSizing: 'border-box' }}
-                  onFocus={(e) => (e.target.style.borderColor = biz.accent)}
-                  onBlur={(e)  => (e.target.style.borderColor = '#1a1a2e')}
-                />
-              </div>
-              <p style={{ margin: 0, fontSize: 11, color: '#444', lineHeight: 1.5 }}>
-                Updates the preview live. AI generation fills both — your text here overrides it.
-              </p>
-            </div>
+            <span style={sectionLabel}>Hook & CTA</span>
+            <SmartSuggestions
+              offer={offer}
+              profile={profile!}
+              accent={biz.accent}
+              headline={customHeadline}
+              cta={customCta}
+              onHeadlineChange={setCustomHeadline}
+              onCtaChange={setCustomCta}
+            />
           </div>
 
           {/* Color scheme */}
